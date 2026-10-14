@@ -1,0 +1,211 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../views/**/*.blade.php';
+
+@theme {
+    --font-sans: 'Plus Jakarta Sans', 'Instrument Sans', ui-sans-serif, sans-serif;
+}
+
+:root {
+    font-family: 'Plus Jakarta Sans', 'Instrument Sans', ui-sans-serif, sans-serif;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 1.5rem;
+}
+
+body {
+    background-image: radial-gradient(circle at 50% 0, rgba(197, 235, 231, 0.38), transparent 28rem);
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button {
+    cursor: pointer;
+}
+
+.filter-chip {
+    flex: 0 0 auto;
+    border: 1px solid #dce8e8;
+    border-radius: 9999px;
+    background: #fff;
+    padding: 0.55rem 0.8rem;
+    color: #607c83;
+    font-size: 0.65rem;
+    font-weight: 700;
+    transition: border-color 160ms ease, background-color 160ms ease, color 160ms ease;
+}
+
+.filter-chip:hover {
+    border-color: #8bc9c5;
+}
+
+.filter-chip.is-active {
+    border-color: #087f88;
+    background: #087f88;
+    color: white;
+}
+
+.product-card {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid #e0eaea;
+    border-radius: 1rem;
+    background: white;
+    box-shadow: 0 2px 6px rgb(20 61 70 / 3%);
+    transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.product-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgb(20 61 70 / 8%);
+}
+
+.product-card[hidden] {
+    display: none;
+}
+
+.product-image-wrap {
+    position: relative;
+    aspect-ratio: 1.42;
+    overflow: hidden;
+    background: linear-gradient(145deg, #e9f7f5, #f4eee5);
+}
+
+.product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 400ms ease;
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.04);
+}
+
+.product-badge,
+.product-rating {
+    position: absolute;
+    top: 0.55rem;
+    border-radius: 9999px;
+    background: rgb(255 255 255 / 94%);
+    padding: 0.3rem 0.5rem;
+    font-size: 0.55rem;
+    font-weight: 800;
+    color: #35616a;
+}
+
+.product-badge {
+    left: 0.55rem;
+}
+
+.product-rating {
+    right: 0.55rem;
+    color: #72532a;
+}
+
+.product-rating span {
+    color: #e3a540;
+}
+
+.product-add {
+    position: absolute;
+    right: 0.55rem;
+    bottom: 0.55rem;
+    display: grid;
+    width: 2rem;
+    height: 2rem;
+    place-items: center;
+    border: 1px solid rgb(7 126 131 / 14%);
+    border-radius: 9999px;
+    background: #fff;
+    color: #087e83;
+    box-shadow: 0 2px 8px rgb(17 58 68 / 12%);
+    transition: transform 160ms ease, background-color 160ms ease;
+}
+
+.product-add:hover {
+    transform: scale(1.06);
+    background: #e6f6f4;
+}
+
+.bottom-nav {
+    position: fixed;
+    z-index: 20;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    border-top: 1px solid #dce8e8;
+    background: rgb(255 255 255 / 96%);
+    padding: 0.45rem max(0.65rem, env(safe-area-inset-right)) max(0.45rem, env(safe-area-inset-bottom)) max(0.65rem, env(safe-area-inset-left));
+    backdrop-filter: blur(16px);
+}
+
+.bottom-nav__item {
+    display: flex;
+    min-height: 3rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+    color: #809499;
+    font-size: 0.58rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.bottom-nav__item.is-current {
+    color: #087e83;
+}
+
+.cart-count {
+    position: absolute;
+    top: -0.28rem;
+    right: -0.48rem;
+    display: grid;
+    min-width: 0.9rem;
+    height: 0.9rem;
+    place-items: center;
+    border: 1px solid white;
+    border-radius: 9999px;
+    background: #ef8b68;
+    padding: 0 0.18rem;
+    color: white;
+    font-size: 0.5rem;
+    line-height: 1;
+}
+
+@media (min-width: 640px) {
+    .bottom-nav {
+        right: 50%;
+        bottom: 1rem;
+        left: auto;
+        width: min(28rem, calc(100% - 2rem));
+        transform: translateX(50%);
+        border: 1px solid #dce8e8;
+        border-radius: 1rem;
+        padding: 0.35rem 0.6rem;
+        box-shadow: 0 12px 35px rgb(20 61 70 / 12%);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
